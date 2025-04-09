@@ -32,26 +32,28 @@ This activity reinforces:
 // ❌ Original Code (Before Refactoring)
 // ============================================
 
-// Script 1 - Greeting multiple users
-console.log("Welcome, Alice!");
-console.log("Welcome, Bob!");
-console.log("Welcome, Charlie!");
+// // Script 1 - Greeting multiple users
+// console.log("Welcome, Alice!");
+// console.log("Welcome, Bob!");
+// console.log("Welcome, Charlie!");
 
-// Script 2 - Sum calculation
-let num1 = 5, num2 = 10;
-let sum = num1 + num2;
-console.log("The sum of 5 and 10 is " + sum);
 
-// Script 3 - Product calculation
-let product = num1 * num2;
-console.log("The product of 5 and 10 is " + product);
 
-// Script 4 - Print names from a list
-let names = ["Alice", "Bob", "Charlie"];
-console.log("Names in the list:");
-for (let i = 0; i < names.length; i++) {
-    console.log(names[i]);
-}
+// // Script 2 - Sum calculation
+// let num1 = 5, num2 = 10; - PARAMETERS
+// let sum = num1 + num2;  - OPERTATION
+// console.log("The sum of 5 and 10 is " + sum); - READ OUTPUT
+
+// // Script 3 - Product calculation
+// let product = num1 * num2;
+// console.log("The product of 5 and 10 is " + product);
+
+// // Script 4 - Print names from a list
+// let names = ["Alice", "Bob", "Charlie"];
+// console.log("Names in the list:");
+// for (let i = 0; i < names.length; i++) {
+//     console.log(names[i]);
+// }
 
 /*
 ===========================================
@@ -72,3 +74,69 @@ for (let i = 0; i < names.length; i++) {
 */
 
 // ✅ Your refactored code goes below this line!
+
+let names = ["Alice", "Bob", "Charlie"];
+
+// Solution 1
+function greet(name) {
+ //  console.log("Welcome, " + name + "!");
+   console.log(`Welcome, ${name}!`);
+}
+
+
+// Solution 2
+function add(a, b) {
+   // let sum = a + b;
+   // return sum;
+   return a + b;
+}
+
+function printSum(a, b) {
+console.log(`The sum of ${a} and ${b} is ${add(a, b)}`);
+}
+
+
+
+
+//Solution 3
+function multiply (a, b){
+   return a * b;
+}
+
+function printProduct(a, b){
+   console.log(`The product of ${a} and ${b} is ${multiply(a, b)}`);
+}
+
+//OUTPUT: The product of 5 and 10 is 50
+
+
+
+//Solution 4
+function printNames(names) {
+   console.log("Names in the list: ");{
+      for (let i = 0; i < names.length; i++){console.log(names[i]);
+   }
+}
+}
+// CALL FUNCTIONS
+
+//FUNCTION 1
+
+// greet("Alice");
+// greet("Bob");
+// greet("Charlie");
+
+for (let name of names) {greet(name)}
+
+//FUNCTION 2
+
+let a = 5, b = 10;
+printSum(a, b)//OUTPUT: The sum of 5 and 10 is 15
+
+//FUNCTION 3
+
+printProduct(a, b)
+
+//FUNCTION 4
+
+printNames(names);

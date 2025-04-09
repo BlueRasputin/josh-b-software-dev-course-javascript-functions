@@ -36,7 +36,33 @@ reusable functions that solve specific tasks. This activity encourages:
 // 3. Capitalize the role if needed.
 // 4. Return the result.
 
+const readline = require('readline-sync');
 
+
+function generateBadge(name, role) {
+    if (!name) name = readline.question("What is your name? ");
+    if (!role) role = readline.question("What is your role? ");
+
+
+    let newRole = role.charAt(0).toUpperCase() + role.slice(1);
+    return `Name: ${name}, Role: ${newRole}`;
+}
+
+console.log(generateBadge());
+
+
+
+
+
+
+// // ==========================let msg = generateBadge('Alice','speaker');
+// console.log(msg);
+// let cost = eventCost(120,25);
+// console.log(cost);
+
+
+// let result = validateEmail("xx@fga.com");
+// console.log(result)
 // ============================================
 // 🧩 Task 2: Calculate Event Cost
 // ============================================
@@ -51,6 +77,28 @@ reusable functions that solve specific tasks. This activity encourages:
 // 3. If so, apply a 10% discount.
 // 4. Return the final total.
 
+// function eventCost(attendees, cost) {
+//     let totalCost = attendees * cost;
+// 	if (attendees > 100) {
+// 		totalCost *= .9;
+// 	}
+// 	return totalCost;
+// }
+
+
+function eventCost(attendees, cost) {
+    if (!attendees) attendees = readline.question("How many people are attending? ");
+    if (!cost) cost = readline.question("What is the cost per person? ");
+   
+    let totalCost = attendees * cost;
+        if (attendees > 100) {
+            totalCost *= .9;
+        }
+   
+    return totalCost;
+}
+let cost = eventCost(120,25);
+console.log(cost);
 
 // ============================================
 // 🧩 Task 3: Validate Email
@@ -64,6 +112,38 @@ reusable functions that solve specific tasks. This activity encourages:
 // 1. Check if the string includes both "@" and ".".
 // 2. Return true or false accordingly.
 
+
+function validateEmail(email)
+{
+    if(email.includes("@") && email.includes(".")){
+        return true;
+    }
+    return false;
+}
+
+let email = false
+function validateEmail(email) {
+    if (!email) email = readline.question("What is your email? ");
+   
+    let isValid = false;
+   
+    do{
+        if (email.includes("@") && email.includes(".")) {
+            return true;
+        }
+        else
+            email = readline.question("Please enter a valid email address. ");
+    } while (!isValid);
+}
+
+console.log(validateEmail(email))
+
+
+
+
+
+// let result = validateEmail("xx@fga.com");
+// console.log(result);
 
 // ============================================
 // 🧠 Collaborative Steps
